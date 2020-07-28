@@ -15,6 +15,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
                     print 'username=' + USERNAME + 'password=' + USERPASS
+                    whoami
                     sshPublisher(
                         failOnError: true,
                         continueOnError: false,
